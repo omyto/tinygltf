@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.5.30",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_materials_specular",
+    "KHR_materials_ior"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "extras": {
+        "blosm": {
+          "defaultLevels": [
+            {
+              "levels": 4,
+              "weight": 10
+            },
+            {
+              "levels": 5,
+              "weight": 40
+            },
+            {
+              "levels": 6,
+              "weight": 10
+            }
+          ],
+          "mode": 0,
+          "dataType": 2,
+          "overlayType": 3,
+          "water": 0,
+          "forests": 0,
+          "vegetation": 0,
+          "highways": 0,
+          "minLon": 151.2052764892578,
+          "minLat": -33.87361526489258,
+          "maxLon": 151.20809936523438,
+          "maxLat": -33.86992263793945,
+          "saveOverlayToFile": 0
+        },
+        "lat": 51.3336067199707,
+        "lon": 12.374425411224365,
+        "automirror": {
+          "axis": 2
+        },
+        "print_3d": {},
+        "td": {
+          "texture_size": 1,
+          "uv_space": "60.8635 %",
+          "density": "18.195",
+          "units": 1
+        },
+        "sun_pos_properties": {
+          "show_surface": 0,
+          "show_analemmas": 0,
+          "show_north": 0,
+          "day_of_year": 107,
+          "sun_object": {},
+          "object_collection": {}
+        }
+      },
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "maple1-lod0"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            0,
+            0,
+            0
+          ]
+        },
+        "KHR_materials_ior": {
+          "ior": 1.4500000476837158
+        }
+      },
+      "name": "tree_material",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Plane.007",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 0,
+            "POSITION": 1,
+            "TEXCOORD_0": 2,
+            "NORMAL": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 795,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 795,
+      "max": [
+        4.484391212463379,
+        11.462169647216797,
+        4.5737762451171875
+      ],
+      "min": [
+        -5.296260833740234,
+        0.0030660629272460938,
+        -4.358633518218994
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 795,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 795,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 2496,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 12720,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9540,
+      "byteOffset": 12720,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 6360,
+      "byteOffset": 22260,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9540,
+      "byteOffset": 28620,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4992,
+      "byteOffset": 38160,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "maple1-lod1_data.bin",
+      "byteLength": 43152
+    }
+  ]
+}

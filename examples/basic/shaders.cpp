@@ -11,6 +11,7 @@ std::string FragmentShaderCode =
 in vec3 normal;\n\
 in vec3 position;\n\
 in vec2 texcoord;\n\
+in vec4 v_color;\n\
 \n\
 uniform sampler2D tex;\n\
 uniform vec3 sun_position; \n\
@@ -20,6 +21,7 @@ out vec4 color;\n\
 void main() {\n\
 	float lum = max(dot(normal, normalize(sun_position)), 0.0);\n\
 	color = texture(tex, texcoord) * vec4((0.3 + 0.7 * lum) * sun_color, 1.0);\n\
+	color = v_color * vec4((0.3 + 0.7 * lum) * sun_color, 1.0);\n\
 }\n\
 ";
 
@@ -28,12 +30,14 @@ std::string VertexShaderCode =
 layout(location = 0) in vec3 in_vertex;\n\
 layout(location = 1) in vec3 in_normal;\n\
 layout(location = 2) in vec2 in_texcoord;\n\
+layout(location = 3) in vec4 in_color;\n\
 \n\
 uniform mat4 MVP;\n\
 \n\
 out vec3 normal;\n\
 out vec3 position;\n\
 out vec2 texcoord;\n\
+out vec4 v_color;\n\
 \n\
 void main(){\n\
 	gl_Position = MVP * vec4(in_vertex, 1);\n\
@@ -41,6 +45,7 @@ void main(){\n\
 	normal = normalize(mat3(MVP) * in_normal);\n\
 	position = in_vertex;\n\
 	texcoord = in_texcoord;\n\
+	v_color = in_color;\n\
 }";
 
 

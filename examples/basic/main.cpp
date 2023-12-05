@@ -22,7 +22,7 @@ bool loadModel(tinygltf::Model &model, const char *filename) {
   std::string err;
   std::string warn;
 
-  bool res = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
+  bool res = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
   if (!warn.empty()) {
     std::cout << "WARN: " << warn << std::endl;
   }
@@ -91,6 +91,7 @@ void bindMesh(std::map<int, GLuint>& vbos,
       if (attrib.first.compare("POSITION") == 0) vaa = 0;
       if (attrib.first.compare("NORMAL") == 0) vaa = 1;
       if (attrib.first.compare("TEXCOORD_0") == 0) vaa = 2;
+      if (attrib.first.compare("COLOR_0") == 0) vaa = 3;
       if (vaa > -1) {
         glEnableVertexAttribArray(vaa);
         glVertexAttribPointer(vaa, size, accessor.componentType,
@@ -299,7 +300,7 @@ void displayLoop(Window &window, const std::string &filename) {
   // Model matrix : an identity matrix (model will be at the origin)
   glm::mat4 model_mat = glm::mat4(1.0f);
   glm::mat4 model_rot = glm::mat4(1.0f);
-  glm::vec3 model_pos = glm::vec3(-3, 0, -3);
+  glm::vec3 model_pos = glm::vec3(-3, -15, -3);
 
   // generate a camera view, based on eye-position and lookAt world-position
   glm::mat4 view_mat = genView(glm::vec3(2, 2, 20), model_pos);
@@ -315,7 +316,7 @@ void displayLoop(Window &window, const std::string &filename) {
 
     glm::mat4 trans =
         glm::translate(glm::mat4(1.0f), model_pos);  // reposition model
-    model_rot = glm::rotate(model_rot, glm::radians(0.8f),
+    model_rot = glm::rotate(model_rot, glm::radians(0.08f),
                             glm::vec3(0, 1, 0));  // rotate model on y axis
     model_mat = trans * model_rot;
 
@@ -343,6 +344,9 @@ static void error_callback(int error, const char *description) {
 
 int main(int argc, char **argv) {
   std::string filename = "../../../models/Cube/Cube.gltf";
+  filename = "../../../models/maple1-lod1.glb";
+  //filename = "../../../models/DaNa0003-SanBayDongHoi.glb";
+  //filename = "../../../models/box01.glb";
 
   if (argc > 1) {
     filename = argv[1];
